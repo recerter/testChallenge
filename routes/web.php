@@ -24,6 +24,7 @@ Auth::routes();
 Route::get('/home', [App\Http\Controllers\HomeController::class, 'index'])->name('home');
 Route::get('/information', [App\Http\Controllers\InformationController::class, 'index'])->name('information');
 Route::get('/tasks', [App\Http\Controllers\TasksController::class, 'index'])->name('tasks');
-Route::post('/information', [App\Http\Controllers\InformationController::class, 'updatePassword'])->name('information.updatePassword');
-Route::put('/information', [App\Http\Controllers\InformationController::class, 'updateName'])->name('information.updateName');
+Route::post('/information/updatePassword', [App\Http\Controllers\InformationController::class, 'updatePassword'])->name('information.updatePassword');
+Route::put('/information/updateName', [App\Http\Controllers\InformationController::class, 'updateName'])->name('information.updateName');
+Route::put('/information/updatePhoto', [App\Http\Controllers\InformationController::class, 'updatePhoto'])->name('information.updatePhoto');
 

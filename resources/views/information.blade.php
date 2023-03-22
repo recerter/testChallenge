@@ -8,6 +8,29 @@
                 <div class="card-header">{{ __('Mi Informacion') }}</div>
 
                 <div class="card-body">
+                <form method="POST" action="{{ route('information.updatePhoto') }}" enctype="multipart/form-data">
+                    @csrf
+                    @method('PUT')
+                    <div class="row mb-3">
+                    <label for="name" class="col-md-4 col-form-label text-md-end">{{ __('Imagen de perfil') }}</label>
+                        <div class="col-md-6">
+                        <input type="file" class="form-control-file" id="profile_picture" name="profile_picture">
+                        </div>
+                        @error('profile_picture')
+                            <span class="invalid-feedback" role="alert">
+                                <strong>{{ $message }}</strong>
+                            </span>
+                        @enderror
+                    </div>
+                    <div class="row mb-0">
+                            <div class="col-md-8 offset-md-4">
+                    <button type="submit" class="btn btn-primary">Actualizar Imagen</button>
+                            </div>
+                    </div>
+                </form>
+                </div>
+
+                <div class="card-body">
                     <form method="POST" action="{{ route('information.updateName') }}" enctype="multipart/form-data">
                         @csrf
                         @method('PUT')
@@ -43,6 +66,7 @@
                 <div class="card-body">
                     <form method="POST" action="{{ route('information.updatePassword') }}" enctype="multipart/form-data">
                         @csrf
+                        @method('PUT')
                         <div class="row mb-3">
                             <label for="password" class="col-md-4 col-form-label text-md-end">{{ __('Contraseña actual') }}</label>
 
@@ -77,7 +101,7 @@
                         @endif
                         <div class="row mb-0">
                             <div class="col-md-8 offset-md-4">
-                        <button type="submit" class="btn btn-primary">Guardar cambios</button>
+                        <button type="submit" class="btn btn-primary">Cambiar Contraseña</button>
                         </div>
                         </div>
                     </form>
