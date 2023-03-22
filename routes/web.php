@@ -20,11 +20,15 @@ Route::get('/', function () {
 });
 
 Auth::routes();
-
+//RUTAS MAIN
 Route::get('/home', [App\Http\Controllers\HomeController::class, 'index'])->name('home');
 Route::get('/information', [App\Http\Controllers\InformationController::class, 'index'])->name('information');
-Route::get('/tasks', [App\Http\Controllers\TasksController::class, 'index'])->name('tasks');
-Route::post('/information/updatePassword', [App\Http\Controllers\InformationController::class, 'updatePassword'])->name('information.updatePassword');
+Route::get('/tasks', [App\Http\Controllers\TaskController::class, 'index'])->name('tasks');
+
+//RUTAS TASKS
+Route::post('/tasks/create', [App\Http\Controllers\TaskController::class, 'store'])->name('tasks.store');
+//RUTAS DE UPDATE INFORMATION
+Route::put('/information/updatePassword', [App\Http\Controllers\InformationController::class, 'updatePassword'])->name('information.updatePassword');
 Route::put('/information/updateName', [App\Http\Controllers\InformationController::class, 'updateName'])->name('information.updateName');
 Route::put('/information/updatePhoto', [App\Http\Controllers\InformationController::class, 'updatePhoto'])->name('information.updatePhoto');
 
