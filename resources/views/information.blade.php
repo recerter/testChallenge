@@ -65,7 +65,7 @@
                         @endif
                         <div class="row mb-0">
                             <div class="col-md-8 offset-md-4">
-                        <button type="submit" class="btn btn-primary">Guardar cambios</button>
+                        <button type="submit" class="btn btn-primary">Guardar Nombre</button>
                         </div>
                         </div>
                     </form>

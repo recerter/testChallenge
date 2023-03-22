@@ -18,7 +18,14 @@
 
 <ul>
     @foreach ($tasks as $task)
-        <li>{{ $task->name }} - {{ $task->description }}</li>
+        <li>
+            {{ $task->name }} - {{ $task->description }}
+            <form method="POST" action="{{ route('tasks.destroy', $task->id) }}">
+                @csrf
+                @method('DELETE')
+                <button type="submit">Eliminar</button>
+            </form>
+        </li>
     @endforeach
 </ul>
 

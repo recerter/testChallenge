@@ -35,4 +35,12 @@ public function store(Request $request)
 
     return redirect()->route('tasks')->with('success', 'Tarea agregada correctamente.');
 }
+
+public function destroy(Task $task)
+{
+    $task->delete();
+
+    return redirect()->route('tasks');
+}
+
 }

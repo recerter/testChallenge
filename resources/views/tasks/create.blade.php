@@ -27,7 +27,7 @@
                                 <label for="name" class="col-md-4 col-form-label text-md-end">{{ __('Descripción') }}</label>
 
                                 <div class="col-md-6">
-                                <textarea name="description" id="description" class="form-control"></textarea>
+                                <textarea name="description" id="description" class="form-control" required></textarea>
                                 </div>
                             </div>
                             @if (session('success'))
