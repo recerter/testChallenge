@@ -1,6 +1,13 @@
 @extends('layouts.app')
 
 @section('content')
+@guest
+<script>
+    window.onload = function() {
+        window.location.href = "{{ route('login') }}";
+    }
+</script>
+@else
 <div class="container">
     <div class="row justify-content-center">
         <div class="col-md-8">
@@ -14,6 +21,7 @@
                     <div class="row mb-3">
                     <label for="name" class="col-md-4 col-form-label text-md-end">{{ __('Imagen de perfil') }}</label>
                         <div class="col-md-6">
+                        <img src="{{ Auth::user()->photo }}" alt="" height="50" >
                         <input type="file" class="form-control-file" id="profile_picture" name="profile_picture">
                         </div>
                         @error('profile_picture')
@@ -111,4 +119,5 @@
         </div>
     </div>
 </div>
+@endguest
 @endsection
