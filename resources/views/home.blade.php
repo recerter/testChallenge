@@ -1,6 +1,13 @@
 @extends('layouts.app')
 
 @section('content')
+@guest
+<script>
+    window.onload = function() {
+        window.location.href = "{{ route('login') }}";
+    }
+</script>
+@endguest
 <div class="container">
     <div class="row justify-content-center">
         <div class="col-md-8">
