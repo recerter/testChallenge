@@ -26,6 +26,7 @@ Route::get('/information', [App\Http\Controllers\InformationController::class, '
 Route::get('/tasks', [App\Http\Controllers\TaskController::class, 'index'])->name('tasks');
 
 //RUTAS TASKS
+Route::get('/tasks/create', [App\Http\Controllers\TaskController::class, 'create'])->name('tasks.create');
 Route::post('/tasks/create', [App\Http\Controllers\TaskController::class, 'store'])->name('tasks.store');
 //RUTAS DE UPDATE INFORMATION
 Route::put('/information/updatePassword', [App\Http\Controllers\InformationController::class, 'updatePassword'])->name('information.updatePassword');

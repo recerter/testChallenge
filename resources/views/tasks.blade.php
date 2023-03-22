@@ -1,21 +1,33 @@
 @extends('layouts.app')
 
 @section('content')
-    <h1>Agregar tarea</h1>
+@guest
+<script>
+    window.onload = function() {
+        window.location.href = "{{ route('login') }}";
+    }
+</script>
+@else
+<div class="container">
+    <div class="row justify-content-center">
+        <div class="col-md-8">
+            <div class="card">
+                <div class="card-header">{{ __('Agregar tarea') }}</div>
+                    <div class="card-body">
+                    <h1>Tareas</h1>
 
-    <form method="POST" action="{{ route('tasks.store') }}" enctype="multipart/form-data">
-        @csrf
+<ul>
+    @foreach ($tasks as $task)
+        <li>{{ $task->name }} - {{ $task->description }}</li>
+    @endforeach
+</ul>
 
-        <div>
-            <label for="name">Nombre de la tarea:</label>
-            <input type="text" name="name" id="name">
+<a href="{{ route('tasks.create') }}">Agregar tarea</a>
+                    </div>
+                </div>
+            </div>
         </div>
-
-        <div>
-            <label for="description">Descripción de la tarea:</label>
-            <textarea name="description" id="description"></textarea>
-        </div>
-
-        <button type="submit">Agregar tarea</button>
-    </form>
+    </div>
+</div>
+@endguest
 @endsection
