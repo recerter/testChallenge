@@ -96,6 +96,13 @@
                             <input type="password" name="new_password" id="new_password" class="form-control" required>
                             </div>
                         </div>
+                        <div class="row mb-3">
+                            <label for="new_password_r" class="col-md-4 col-form-label text-md-end">{{ __('Repetir Nueva contraseña') }}</label>
+
+                            <div class="col-md-6">
+                            <input type="password" name="new_password_r" id="new_password_r" class="form-control" required>
+                            </div>
+                        </div>
 
                         @if (session('successPassword'))
                             <div class="alert alert-success">

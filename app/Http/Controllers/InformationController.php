@@ -19,9 +19,13 @@ class InformationController extends Controller
         $user = Auth::user();
     
         if (Hash::check($request->current_password, $user->password)) {
-            $user->password = Hash::make($request->new_password);
-            $user->save();
-    
+            if($request->new_password == $request->new_password_r){
+                $user->password = Hash::make($request->new_password);
+                $user->save();
+            }else{
+                return redirect()->back()->withErrors(['current_password' => 'La contraseña nueva no coinciden.']);
+            }
+            
             return redirect()->back()->with('successPassword', 'Contraseña actualizada exitosamente.');
         }
     
